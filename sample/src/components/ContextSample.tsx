@@ -1,0 +1,30 @@
+import React from "react";
+
+const TitleContext = React.createContext('');
+
+const Title = () => {
+  return (
+    <TitleContext.Consumer>
+      {title => <h1>{title}</h1>}
+    </TitleContext.Consumer>
+  )
+}
+
+const Header = () => {
+  return (
+    <div>
+      <Title />
+    </div>
+  )
+}
+
+const Page = () => {
+  const title = 'Context Sample';
+  return (
+    <TitleContext.Provider value={title}>
+      <Header />
+    </TitleContext.Provider>
+  )
+}
+
+export default Page;
